@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+
+
+        <!-- Left side toggle button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#leftCollapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Left side navigation links -->
+        <div class="collapse navbar-collapse" id="leftCollapsibleNavbar">
+            <ul class="nav navbar-nav">
+               <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+    <a class="nav-link1" href="/">Homepage</a>
+</li>
+<li class="nav-item {% if request.path == '/data_analysis/feeding_time' %}active{% endif %}">
+    <a class="nav-link1" href="/data_analysis/feeding_time">Data Analysis</a>
+</li>
+
+
+
+            </ul>
+        </div>
+
+        <!-- Right side navigation -->
+        <div class="collapse navbar-collapse" id="rightCollapsibleNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item {% if request.path == '/update/email' %}active{% endif %}">
+    <a class="nav-link1" href="/update/email">Email Settings</a>
+</li>
+            </ul>
+        </div>
+    </div>
+</nav>

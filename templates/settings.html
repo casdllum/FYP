@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Library Loan System - Home{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<style>
+    * {
+        font-family: Times New Roman;
+    }
+
+    .label p b {
+        color: #224847;
+    }
+
+    .label {
+        display: flex;
+justify-content: center;
+
+        text-align: center;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .form-field-wrapper input {
+        width: 250px;
+        height: 35px;
+        margin-left: 30px;
+        font-size: 20px;
+        margin-top:-20px;
+    }
+
+    form {
+        width: 100%;
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .info b {
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div style="width: 100%; text-align: center; margin-top:30px;">
+        <div style=" border-bottom: 2px solid #224847; width: 35%; margin: 0 auto;">
+            <p style="font-size: 30px; font-weight: bold; text-align: center; color:#224847">Feeding Settings</p>
+        </div>
+    </div>
+
+    <form method="POST" action="">
+        <div class="label">
+            <p class="info"><b>First timer:   &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;</b></p>
+            <div class="form-field-wrapper">
+                {{ render_field(form.first_timer, class="form-control") }}
+            </div>
+        </div>
+
+        <div class="label">
+            <p class="info"><b>Second timer: &nbsp; &nbsp;  &nbsp; &nbsp;</b></p>
+            <div class="form-field-wrapper">
+                {{ render_field(form.second_timer, class="form-control") }}
+            </div>
+        </div>
+
+        <div class="label">
+            <p class="info"><b>Number of Pellets:</b></p>
+            <div class="form-field-wrapper">
+                {{ render_field(form.pellets, class="form-control") }}
+            </div>
+        </div>
+
+        <div class="label">
+            <p class="info"><b>Stop in Seconds: &nbsp; &nbsp;</b></p>
+            <div class="form-field-wrapper">
+                {{ render_field(form.seconds, class="form-control") }}
+            </div>
+        </div>
+
+           <div class="label">
+            <p class="info"><b>Confidence: &nbsp; &nbsp;</b></p>
+            <div class="form-field-wrapper">
+                {{ render_field(form.confidence, class="form-control") }}
+            </div>
+        </div>
+
+        <button class="save-btn" onclick="handleClick()" >Save</button>
+    </form>
+</body>
+</html>
+{% endblock %}

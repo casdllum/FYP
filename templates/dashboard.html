@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Dashboard</h1>
+    <!-- Placeholder divs for the charts -->
+    <div id="consumptionChart"></div>
+    <div id="murkinessChart"></div>
+</div>
+
+<!-- Include Plotly.js library -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+    // Function to update charts with live data
+    function updateCharts() {
+        // Make AJAX request to fetch live data from backend
+        fetch('/update_charts')
+        .then(response => response.json())
+        .then(data => {
+            // Update consumption chart
+            Plotly.newPlot('consumptionChart', [data.consumptionData]);
+
+            // Update murkiness chart
+            Plotly.newPlot('murkinessChart', [data.murkinessData]);
+        })
+        .catch(error => console.error('Error updating charts:', error));
+    }
+
+    // Call updateCharts function initially to populate the charts
+    updateCharts();
+
+    // Call updateCharts function periodically (e.g., every 5 seconds)
+    setInterval(updateCharts, 5000); // Adjust the interval as needed
+</script>
+{% endblock %}
