@@ -53,7 +53,7 @@ Pillow==9.5.0
 protobuf==3.20.3
 pycparser==2.21
 pyparsing==3.1.2
-pypiwin32==223
+pywin32>=223,<305
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 python-magic==0.4.27
