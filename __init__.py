@@ -4,6 +4,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash, Res
 from wtforms import Form, StringField, RadioField, SelectField, TextAreaField, validators, ValidationError
 import shelve
 
+from inference_sdk import InferenceHTTPClient
+from PIL import Image
+import io
 
 from Forms import configurationForm, emailForm
 
@@ -371,6 +374,14 @@ app = Flask(__name__)
 
 from flask import Flask, flash, render_template, request, redirect, session, url_for
 import shelve, re
+
+@app.route('/healthz')
+def health_check():
+    # Perform any health check logic here
+    # For example, you can check the status of your database connection,
+    # availability of external services, or any other dependencies
+    # Return an appropriate response indicating the health status of your application
+    return jsonify({'status': 'healthy'})
 
 
 @app.route('/',methods=['GET', 'POST'])
